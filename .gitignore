@@ -68,3 +68,4 @@ Thumbs.db
 # =====================
 coverage/
 *.tmp
+node_modules
