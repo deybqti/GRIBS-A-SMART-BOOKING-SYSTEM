@@ -3,6 +3,6 @@
     { "source": "/admin/(.*)", "destination": "/admin/index.html" }
   ],
   "builds": [
-    { "src": "build/**", "use": "@vercel/static" }
+    { "src": "dist/**", "use": "@vercel/static" }
   ]
 }
