@@ -8,13 +8,16 @@
     "dev:customer": "npm --prefix customer run dev",
     "dev:admin": "npm --prefix admin start",
     "install:all": "npm install && npm --prefix customer install && npm --prefix admin install",
-    "build": "npm run build:customer && npm run build:admin",
+    "build": "npm run clean:dist && npm run build:customer && npm run build:admin && npm run copy:artifacts",
+    "clean:dist": "rimraf dist && mkdir -p dist/customer dist/admin",
+    "copy:artifacts": "cp -R customer/dist/* dist/customer && cp -R admin/build/* dist/admin",
     "build:customer": "npm --prefix customer run build",
     "build:admin": "npm --prefix admin run build"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "cross-env": "^10.0.0"
+    "cross-env": "^10.0.0",
+    "rimraf": "^6.0.1"
   },
   "workspaces": [
     "customer",
